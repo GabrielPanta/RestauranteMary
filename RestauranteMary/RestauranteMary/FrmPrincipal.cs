@@ -39,5 +39,17 @@ namespace RestauranteMary
         {
             Application.Exit();
         }
+
+        private void MesaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CocinerosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCocinero miform = new FrmCocinero();
+            miform.MdiParent = this;
+            miform.Show();
+        }
     }
 }

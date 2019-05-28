@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CADCliente.cs" />
+    <Compile Include="CADCocinero.cs" />
     <Compile Include="CADUsuario.cs" />
     <Compile Include="DSRestauranteMary.Designer.cs">
       <AutoGen>True</AutoGen>
