@@ -76,7 +76,7 @@ namespace RestauranteMary
 
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
-            if (dgvBusqueda.Rows.Count == 0)
+            if (dgvBusqueda.RowCount == 0)
             {
                 idUsuario = 0;
             }

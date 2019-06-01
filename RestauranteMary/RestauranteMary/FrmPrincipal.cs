@@ -19,7 +19,7 @@ namespace RestauranteMary
 
         private void ClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCliente miform = new FrmCliente();
+            FrmClienteV miform = new FrmClienteV();
             miform.MdiParent = this;
             miform.Show();
             
