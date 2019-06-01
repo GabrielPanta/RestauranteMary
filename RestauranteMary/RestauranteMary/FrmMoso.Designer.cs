@@ -1,6 +1,6 @@
 ﻿namespace RestauranteMary
 {
-    partial class FrmCliente
+    partial class FrmMoso
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCliente));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMoso));
+            this.txtIdMoso = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtApellidos = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.lab = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbPrimero = new System.Windows.Forms.ToolStripButton();
             this.tsbAnterior = new System.Windows.Forms.ToolStripButton();
@@ -42,31 +48,65 @@
             this.tsbguardar = new System.Windows.Forms.ToolStripButton();
             this.tsbcancelar = new System.Windows.Forms.ToolStripButton();
             this.tsbbuscar = new System.Windows.Forms.ToolStripButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lab = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtApellidos = new System.Windows.Forms.TextBox();
-            this.txtObservaciones = new System.Windows.Forms.TextBox();
-            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dSRestauranteMaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dSRestauranteMary = new RestauranteMary.DSRestauranteMary();
-            this.clienteTableAdapter = new RestauranteMary.DSRestauranteMaryTableAdapters.ClienteTableAdapter();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtIdCliente = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
-            this.clienteBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSRestauranteMaryBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSRestauranteMary)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // txtIdMoso
+            // 
+            this.txtIdMoso.Location = new System.Drawing.Point(91, 55);
+            this.txtIdMoso.Name = "txtIdMoso";
+            this.txtIdMoso.ReadOnly = true;
+            this.txtIdMoso.Size = new System.Drawing.Size(75, 20);
+            this.txtIdMoso.TabIndex = 24;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(27, 58);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "IdMoso";
+            // 
+            // txtApellidos
+            // 
+            this.txtApellidos.Location = new System.Drawing.Point(91, 107);
+            this.txtApellidos.Name = "txtApellidos";
+            this.txtApellidos.ReadOnly = true;
+            this.txtApellidos.Size = new System.Drawing.Size(329, 20);
+            this.txtApellidos.TabIndex = 22;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(91, 81);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.ReadOnly = true;
+            this.txtNombre.Size = new System.Drawing.Size(329, 20);
+            this.txtNombre.TabIndex = 21;
+            // 
+            // lab
+            // 
+            this.lab.AutoSize = true;
+            this.lab.Location = new System.Drawing.Point(36, 110);
+            this.lab.Name = "lab";
+            this.lab.Size = new System.Drawing.Size(49, 13);
+            this.lab.TabIndex = 20;
+            this.lab.Text = "Apellidos";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(41, 84);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Nombre";
             // 
             // toolStrip1
             // 
@@ -84,8 +124,8 @@
             this.tsbbuscar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(642, 25);
-            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.TabIndex = 18;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // tsbPrimero
@@ -203,106 +243,6 @@
             this.tsbbuscar.Size = new System.Drawing.Size(23, 22);
             this.tsbbuscar.Text = "toolStripButton10";
             this.tsbbuscar.ToolTipText = "buscar";
-            this.tsbbuscar.Click += new System.EventHandler(this.Tsbbuscar_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 79);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Nombre";
-            // 
-            // lab
-            // 
-            this.lab.AutoSize = true;
-            this.lab.Location = new System.Drawing.Point(20, 105);
-            this.lab.Name = "lab";
-            this.lab.Size = new System.Drawing.Size(49, 13);
-            this.lab.TabIndex = 3;
-            this.lab.Text = "Apellidos";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 131);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Observaciones";
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(75, 76);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.ReadOnly = true;
-            this.txtNombre.Size = new System.Drawing.Size(329, 20);
-            this.txtNombre.TabIndex = 5;
-            // 
-            // txtApellidos
-            // 
-            this.txtApellidos.Location = new System.Drawing.Point(75, 102);
-            this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.ReadOnly = true;
-            this.txtApellidos.Size = new System.Drawing.Size(329, 20);
-            this.txtApellidos.TabIndex = 6;
-            // 
-            // txtObservaciones
-            // 
-            this.txtObservaciones.Location = new System.Drawing.Point(104, 128);
-            this.txtObservaciones.Multiline = true;
-            this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.ReadOnly = true;
-            this.txtObservaciones.Size = new System.Drawing.Size(300, 94);
-            this.txtObservaciones.TabIndex = 7;
-            // 
-            // clienteBindingSource
-            // 
-            this.clienteBindingSource.DataMember = "Cliente";
-            this.clienteBindingSource.DataSource = this.dSRestauranteMaryBindingSource;
-            // 
-            // dSRestauranteMaryBindingSource
-            // 
-            this.dSRestauranteMaryBindingSource.DataSource = this.dSRestauranteMary;
-            this.dSRestauranteMaryBindingSource.Position = 0;
-            // 
-            // dSRestauranteMary
-            // 
-            this.dSRestauranteMary.DataSetName = "DSRestauranteMary";
-            this.dSRestauranteMary.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // clienteTableAdapter
-            // 
-            this.clienteTableAdapter.ClearBeforeFill = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(442, 62);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(170, 140);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
-            // 
-            // txtIdCliente
-            // 
-            this.txtIdCliente.Location = new System.Drawing.Point(75, 50);
-            this.txtIdCliente.Name = "txtIdCliente";
-            this.txtIdCliente.ReadOnly = true;
-            this.txtIdCliente.Size = new System.Drawing.Size(75, 20);
-            this.txtIdCliente.TabIndex = 11;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "IdCliente";
             // 
             // dgvDatos
             // 
@@ -315,48 +255,48 @@
             this.dgvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatos.Enabled = false;
-            this.dgvDatos.Location = new System.Drawing.Point(0, 228);
+            this.dgvDatos.Location = new System.Drawing.Point(0, 199);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.ReadOnly = true;
-            this.dgvDatos.Size = new System.Drawing.Size(642, 201);
-            this.dgvDatos.TabIndex = 26;
+            this.dgvDatos.Size = new System.Drawing.Size(800, 254);
+            this.dgvDatos.TabIndex = 28;
             // 
-            // clienteBindingSource1
+            // pictureBox1
             // 
-            this.clienteBindingSource1.DataMember = "Cliente";
-            this.clienteBindingSource1.DataSource = this.dSRestauranteMary;
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(521, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(164, 154);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 29;
+            this.pictureBox1.TabStop = false;
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // FrmCliente
+            // FrmMoso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 427);
-            this.Controls.Add(this.dgvDatos);
-            this.Controls.Add(this.txtIdCliente);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.txtObservaciones);
+            this.Controls.Add(this.dgvDatos);
+            this.Controls.Add(this.txtIdMoso);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtApellidos);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.lab);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.toolStrip1);
-            this.Name = "FrmCliente";
-            this.Text = "Clientes";
-            this.Load += new System.EventHandler(this.FrmCliente_Load);
+            this.Name = "FrmMoso";
+            this.Text = "Mosos";
+            this.Load += new System.EventHandler(this.FrmMoso_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSRestauranteMaryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSRestauranteMary)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -365,6 +305,12 @@
 
         #endregion
 
+        private System.Windows.Forms.TextBox txtIdMoso;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtApellidos;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label lab;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbPrimero;
         private System.Windows.Forms.ToolStripButton tsbAnterior;
@@ -377,21 +323,8 @@
         private System.Windows.Forms.ToolStripButton tsbguardar;
         private System.Windows.Forms.ToolStripButton tsbcancelar;
         private System.Windows.Forms.ToolStripButton tsbbuscar;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lab;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtApellidos;
-        private System.Windows.Forms.TextBox txtObservaciones;
-        private System.Windows.Forms.BindingSource dSRestauranteMaryBindingSource;
-        private DSRestauranteMary dSRestauranteMary;
-        private System.Windows.Forms.BindingSource clienteBindingSource;
-        private DSRestauranteMaryTableAdapters.ClienteTableAdapter clienteTableAdapter;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtIdCliente;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvDatos;
-        private System.Windows.Forms.BindingSource clienteBindingSource1;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

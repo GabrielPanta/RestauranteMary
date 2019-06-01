@@ -51,6 +51,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSRestauranteMary.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FrmBuscarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscarCliente.Designer.cs">
+      <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBuscarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscarUsuario.Designer.cs">
+      <DependentUpon>FrmBuscarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,14 +81,44 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMesa.Designer.cs">
+      <DependentUpon>FrmMesa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMoso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMoso.Designer.cs">
+      <DependentUpon>FrmMoso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPlato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPlato.Designer.cs">
+      <DependentUpon>FrmPlato.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsuario.Designer.cs">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmBuscarCliente.resx">
+      <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscarUsuario.resx">
+      <DependentUpon>FrmBuscarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -86,8 +128,20 @@
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMesa.resx">
+      <DependentUpon>FrmMesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMoso.resx">
+      <DependentUpon>FrmMoso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPlato.resx">
+      <DependentUpon>FrmPlato.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsuario.resx">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

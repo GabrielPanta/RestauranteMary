@@ -4574,11 +4574,32 @@ SELECT IdUsuario, Codigo, Contraseña, Nombre, Apellidos FROM Usuario WHERE (IdU
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT IdUsuario, Codigo, Contraseña, Nombre, Apellidos FROM dbo.Usuario";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT IdUsuario, Codigo, Contraseña, Nombre, Apellidos FROM dbo.Usuario\r\nWHERE N" +
+                "ombre LIKE @Nombre\r\nAND Apellidos LIKE @Apellidos";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Apellidos", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "Apellidos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT IdUsuario, Codigo, Contraseña, Nombre, Apellidos FROM dbo.Usuario\r\nWHERE N" +
+                "ombre =@Nombre\r\nAND Apellidos=@Apellidos";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Apellidos", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "Apellidos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT IdUsuario, Codigo, Contraseña, Nombre, Apellidos FROM dbo.Usuario\r\nWHERE N" +
+                "ombre =@Nombre\r\nAND Apellidos=@Apellidos";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Apellidos", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "Apellidos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4603,6 +4624,81 @@ SELECT IdUsuario, Codigo, Contraseña, Nombre, Apellidos FROM Usuario WHERE (IdU
             DSRestauranteMary.UsuarioDataTable dataTable = new DSRestauranteMary.UsuarioDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int ConsultaBuscar(DSRestauranteMary.UsuarioDataTable dataTable, string Nombre, string Apellidos) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Nombre == null)) {
+                throw new global::System.ArgumentNullException("Nombre");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Nombre));
+            }
+            if ((Apellidos == null)) {
+                throw new global::System.ArgumentNullException("Apellidos");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Apellidos));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(DSRestauranteMary.UsuarioDataTable dataTable, string Nombre, string Apellidos) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((Nombre == null)) {
+                throw new global::System.ArgumentNullException("Nombre");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Nombre));
+            }
+            if ((Apellidos == null)) {
+                throw new global::System.ArgumentNullException("Apellidos");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Apellidos));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy1(DSRestauranteMary.UsuarioDataTable dataTable, string Nombre, string Apellidos) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((Nombre == null)) {
+                throw new global::System.ArgumentNullException("Nombre");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Nombre));
+            }
+            if ((Apellidos == null)) {
+                throw new global::System.ArgumentNullException("Apellidos");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Apellidos));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6722,11 +6818,18 @@ SELECT IdCliente, Nombre, Apellidos, Observaciones FROM Cliente WHERE (IdCliente
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT IdCliente, Nombre, Apellidos, Observaciones FROM dbo.Cliente";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT IdCliente, Nombre, Apellidos, Observaciones FROM dbo.Cliente\r\nWHERE Nombre" +
+                " LIKE @Nombre\r\nAND Apellidos LIKE @Apellidos";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Apellidos", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "Apellidos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6751,6 +6854,31 @@ SELECT IdCliente, Nombre, Apellidos, Observaciones FROM Cliente WHERE (IdCliente
             DSRestauranteMary.ClienteDataTable dataTable = new DSRestauranteMary.ClienteDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(DSRestauranteMary.ClienteDataTable dataTable, string Nombre, string Apellidos) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Nombre == null)) {
+                throw new global::System.ArgumentNullException("Nombre");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Nombre));
+            }
+            if ((Apellidos == null)) {
+                throw new global::System.ArgumentNullException("Apellidos");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Apellidos));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

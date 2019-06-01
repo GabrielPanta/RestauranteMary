@@ -46,7 +46,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(33, 98);
+            this.btnAceptar.Location = new System.Drawing.Point(7, 83);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(122, 31);
             this.btnAceptar.TabIndex = 0;
@@ -57,7 +57,7 @@
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(161, 98);
+            this.btnCancelar.Location = new System.Drawing.Point(135, 83);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(122, 31);
             this.btnCancelar.TabIndex = 1;
@@ -67,7 +67,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 34);
+            this.label1.Location = new System.Drawing.Point(34, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 2;
@@ -85,22 +85,22 @@
             this.panel1.Controls.Add(this.btnCancelar);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(451, 162);
+            this.panel1.Size = new System.Drawing.Size(401, 150);
             this.panel1.TabIndex = 3;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(310, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(263, 14);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(134, 153);
+            this.pictureBox1.Size = new System.Drawing.Size(122, 123);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(97, 57);
+            this.txtContraseña.Location = new System.Drawing.Point(80, 57);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(135, 20);
@@ -109,16 +109,16 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(97, 31);
+            this.txtCodigo.Location = new System.Drawing.Point(80, 31);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(183, 20);
+            this.txtCodigo.Size = new System.Drawing.Size(135, 20);
             this.txtCodigo.TabIndex = 4;
             this.txtCodigo.Text = "Gabo";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 60);
+            this.label2.Location = new System.Drawing.Point(13, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 3;
@@ -134,7 +134,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(480, 186);
+            this.ClientSize = new System.Drawing.Size(430, 178);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

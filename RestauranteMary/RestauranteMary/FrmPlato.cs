@@ -4,55 +4,53 @@ using System.Windows.Forms;
 
 namespace RestauranteMary
 {
-    public partial class FrmCliente : Form
+    public partial class FrmPlato : Form
     {
         private int i = 0;
-        private bool nuevo;
-        public FrmCliente()
+        public bool nuevo;
+        public FrmPlato()
         {
             InitializeComponent();
         }
 
-        private void FrmCliente_Load(object sender, EventArgs e)
+        private void FrmPlato_Load(object sender, EventArgs e)
         {
-
-            dgvDatos.DataSource = CADCliente.GetData();
-            MostrarRegistro();
+            dgvDatos.DataSource = CADPlato.GetData();
+            MostrarDatos();
         }
 
-        private void MostrarRegistro()
+        private void MostrarDatos()
         {
             if (dgvDatos.Rows.Count == 0) return;
-            txtIdCliente.Text = dgvDatos.Rows[i].Cells["IdCliente"].Value.ToString();
+            txtIdPlato.Text = dgvDatos.Rows[i].Cells["IdPlato"].Value.ToString();
             txtNombre.Text = dgvDatos.Rows[i].Cells["Nombre"].Value.ToString();
-            txtApellidos.Text = dgvDatos.Rows[i].Cells["Apellidos"].Value.ToString();
-            txtObservaciones.Text = dgvDatos.Rows[i].Cells["Observaciones"].Value.ToString();
+            txtDescripcion.Text = dgvDatos.Rows[i].Cells["Descripcion"].Value.ToString();
         }
 
         private void TsbPrimero_Click(object sender, EventArgs e)
         {
             i = 0;
-            MostrarRegistro();
+            MostrarDatos();
         }
 
         private void TsbAnterior_Click(object sender, EventArgs e)
         {
             if (i == 0) return;
             i--;
-            MostrarRegistro();
+            MostrarDatos();
         }
 
         private void TsbSiguiente_Click(object sender, EventArgs e)
         {
             if (i >= dgvDatos.Rows.Count - 1) return;
             i++;
-            MostrarRegistro();
+            MostrarDatos();
         }
 
         private void TsbUltimo_Click(object sender, EventArgs e)
         {
             i = dgvDatos.Rows.Count - 1;
-            MostrarRegistro();
+            MostrarDatos();
         }
 
         private void Tsbmodificar_Click(object sender, EventArgs e)
@@ -74,16 +72,29 @@ namespace RestauranteMary
             tsbbuscar.Enabled = false;
             tsbeliminar.Enabled = false;
 
-            txtIdCliente.ReadOnly = true;
+            txtIdPlato.ReadOnly = true;
             txtNombre.ReadOnly = false;
-            txtApellidos.ReadOnly = false;
-            txtObservaciones.ReadOnly = false;
+            txtDescripcion.ReadOnly = false;
+        }
+
+        private void Tsbnuevo_Click(object sender, EventArgs e)
+        {
+            nuevo = true;
+            LimpiarCampos();
+            HabilitarCampos();
+        }
+
+        private void LimpiarCampos()
+        {
+            txtIdPlato.Text = "";
+            txtNombre.Text = "";
+            txtDescripcion.Text = "";
         }
 
         private void Tsbcancelar_Click(object sender, EventArgs e)
         {
             DeshabilitarCampos();
-            MostrarRegistro();
+            MostrarDatos();
         }
 
         private void DeshabilitarCampos()
@@ -99,20 +110,9 @@ namespace RestauranteMary
             tsbbuscar.Enabled = true;
             tsbeliminar.Enabled = true;
 
-            txtIdCliente.ReadOnly = true;
+            txtIdPlato.ReadOnly = true;
             txtNombre.ReadOnly = true;
-            txtApellidos.ReadOnly = true;
-            txtObservaciones.ReadOnly = true;
-        }
-
-        private void Tsbnuevo_Click(object sender, EventArgs e)
-        {
-            txtApellidos.Text = "";
-            txtIdCliente.Text = "";
-            txtNombre.Text = "";
-            txtObservaciones.Text = "";
-            nuevo = true;
-            HabilitarCampos();
+            txtDescripcion.ReadOnly = true;
         }
 
         private void Tsbguardar_Click(object sender, EventArgs e)
@@ -120,22 +120,17 @@ namespace RestauranteMary
             if (!ValidarCampos()) return;
             if (nuevo)
             {
-                CADCliente.InsertCliente(txtNombre.Text,
-                                         txtApellidos.Text,
-                                         txtObservaciones.Text);
+                CADPlato.InsertPlato(txtNombre.Text, txtDescripcion.Text);
             }
             else
             {
-                CADCliente.UpdateCliente(txtNombre.Text,
-                                         txtApellidos.Text,
-                                         txtObservaciones.Text,
-                                         Convert.ToInt32(txtIdCliente.Text));
+                CADPlato.UpdatePlato(txtNombre.Text, txtDescripcion.Text, Convert.ToInt32(txtIdPlato.Text));
             }
             DeshabilitarCampos();
             dgvDatos.DataSource = null;
-            dgvDatos.DataSource = CADCliente.GetData();
+            dgvDatos.DataSource = CADPlato.GetData();
             if (nuevo) TsbUltimo_Click(sender, e);
-            MostrarRegistro();
+            MostrarDatos();
         }
 
         private bool ValidarCampos()
@@ -147,37 +142,20 @@ namespace RestauranteMary
                 return false;
             }
             errorProvider1.SetError(txtNombre, "");
-
-            if (txtApellidos.Text == "")
-            {
-                errorProvider1.SetError(txtApellidos, "Debe Ingresar un Apellido");
-                
-                return false;
-            }
-            errorProvider1.SetError(txtApellidos, "");
             return true;
         }
 
         private void Tsbeliminar_Click(object sender, EventArgs e)
         {
             DialogResult rta = MessageBox.Show("¿Estas Seguro de Borrar el Registro Actual?", "Confirmación", MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                 MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (rta == DialogResult.No) return;
-            CADCliente.DeleteCliente(Convert.ToInt32(txtIdCliente.Text));
+            CADPlato.DeletePlato(Convert.ToInt32(txtIdPlato.Text));
             DeshabilitarCampos();
             dgvDatos.DataSource = null;
-            dgvDatos.DataSource = CADCliente.GetData();
-            if (i != 0) i--;//muestra el registro anterior
-            MostrarRegistro();
-        }
-
-        private void Tsbbuscar_Click(object sender, EventArgs e)
-        {
-            FrmBuscarCliente mibusqueda = new FrmBuscarCliente();
-            mibusqueda.ShowDialog();
-            if (mibusqueda.IdCliente == 0) return;
-            int position = clienteBindingSource.Find("IdCliente", mibusqueda.IdCliente);
-            clienteBindingSource.Position = position;
+            dgvDatos.DataSource = CADPlato.GetData();
+            if (i != 0) i--;
+            MostrarDatos();
         }
     }
 }

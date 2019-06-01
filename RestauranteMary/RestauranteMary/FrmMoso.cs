@@ -4,55 +4,53 @@ using System.Windows.Forms;
 
 namespace RestauranteMary
 {
-    public partial class FrmCliente : Form
+    public partial class FrmMoso : Form
     {
         private int i = 0;
         private bool nuevo;
-        public FrmCliente()
+        public FrmMoso()
         {
             InitializeComponent();
         }
 
-        private void FrmCliente_Load(object sender, EventArgs e)
+        private void FrmMoso_Load(object sender, EventArgs e)
         {
-
-            dgvDatos.DataSource = CADCliente.GetData();
-            MostrarRegistro();
+            dgvDatos.DataSource = CADMoso.GetData();
+            MostrarDatos();
         }
 
-        private void MostrarRegistro()
+        private void MostrarDatos()
         {
             if (dgvDatos.Rows.Count == 0) return;
-            txtIdCliente.Text = dgvDatos.Rows[i].Cells["IdCliente"].Value.ToString();
+            txtIdMoso.Text = dgvDatos.Rows[i].Cells["IdMoso"].Value.ToString();
             txtNombre.Text = dgvDatos.Rows[i].Cells["Nombre"].Value.ToString();
             txtApellidos.Text = dgvDatos.Rows[i].Cells["Apellidos"].Value.ToString();
-            txtObservaciones.Text = dgvDatos.Rows[i].Cells["Observaciones"].Value.ToString();
         }
 
         private void TsbPrimero_Click(object sender, EventArgs e)
         {
             i = 0;
-            MostrarRegistro();
+            MostrarDatos();
         }
 
         private void TsbAnterior_Click(object sender, EventArgs e)
         {
             if (i == 0) return;
             i--;
-            MostrarRegistro();
+            MostrarDatos();
         }
 
         private void TsbSiguiente_Click(object sender, EventArgs e)
         {
             if (i >= dgvDatos.Rows.Count - 1) return;
             i++;
-            MostrarRegistro();
+            MostrarDatos();
         }
 
         private void TsbUltimo_Click(object sender, EventArgs e)
         {
             i = dgvDatos.Rows.Count - 1;
-            MostrarRegistro();
+            MostrarDatos();
         }
 
         private void Tsbmodificar_Click(object sender, EventArgs e)
@@ -74,16 +72,15 @@ namespace RestauranteMary
             tsbbuscar.Enabled = false;
             tsbeliminar.Enabled = false;
 
-            txtIdCliente.ReadOnly = true;
+            txtIdMoso.ReadOnly = true;
             txtNombre.ReadOnly = false;
             txtApellidos.ReadOnly = false;
-            txtObservaciones.ReadOnly = false;
         }
 
         private void Tsbcancelar_Click(object sender, EventArgs e)
         {
             DeshabilitarCampos();
-            MostrarRegistro();
+            MostrarDatos();
         }
 
         private void DeshabilitarCampos()
@@ -99,20 +96,23 @@ namespace RestauranteMary
             tsbbuscar.Enabled = true;
             tsbeliminar.Enabled = true;
 
-            txtIdCliente.ReadOnly = true;
+            txtIdMoso.ReadOnly = true;
             txtNombre.ReadOnly = true;
             txtApellidos.ReadOnly = true;
-            txtObservaciones.ReadOnly = true;
         }
 
         private void Tsbnuevo_Click(object sender, EventArgs e)
         {
-            txtApellidos.Text = "";
-            txtIdCliente.Text = "";
-            txtNombre.Text = "";
-            txtObservaciones.Text = "";
             nuevo = true;
+            LimpiarCampos();
             HabilitarCampos();
+        }
+
+        private void LimpiarCampos()
+        {
+            txtIdMoso.Text = "";
+            txtNombre.Text = "";
+            txtApellidos.Text = "";
         }
 
         private void Tsbguardar_Click(object sender, EventArgs e)
@@ -120,22 +120,17 @@ namespace RestauranteMary
             if (!ValidarCampos()) return;
             if (nuevo)
             {
-                CADCliente.InsertCliente(txtNombre.Text,
-                                         txtApellidos.Text,
-                                         txtObservaciones.Text);
+                CADMoso.InsertMoso(txtNombre.Text, txtApellidos.Text);
             }
             else
             {
-                CADCliente.UpdateCliente(txtNombre.Text,
-                                         txtApellidos.Text,
-                                         txtObservaciones.Text,
-                                         Convert.ToInt32(txtIdCliente.Text));
+                CADMoso.UpdateMoso(txtNombre.Text, txtApellidos.Text, Convert.ToInt32(txtIdMoso.Text));
             }
             DeshabilitarCampos();
             dgvDatos.DataSource = null;
-            dgvDatos.DataSource = CADCliente.GetData();
+            dgvDatos.DataSource = CADMoso.GetData();
             if (nuevo) TsbUltimo_Click(sender, e);
-            MostrarRegistro();
+            MostrarDatos();
         }
 
         private bool ValidarCampos()
@@ -151,7 +146,7 @@ namespace RestauranteMary
             if (txtApellidos.Text == "")
             {
                 errorProvider1.SetError(txtApellidos, "Debe Ingresar un Apellido");
-                
+
                 return false;
             }
             errorProvider1.SetError(txtApellidos, "");
@@ -161,23 +156,14 @@ namespace RestauranteMary
         private void Tsbeliminar_Click(object sender, EventArgs e)
         {
             DialogResult rta = MessageBox.Show("¿Estas Seguro de Borrar el Registro Actual?", "Confirmación", MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                 MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (rta == DialogResult.No) return;
-            CADCliente.DeleteCliente(Convert.ToInt32(txtIdCliente.Text));
+            CADMoso.DeleteMoso(Convert.ToInt32(txtIdMoso.Text));
             DeshabilitarCampos();
             dgvDatos.DataSource = null;
-            dgvDatos.DataSource = CADCliente.GetData();
+            dgvDatos.DataSource = CADMoso.GetData();
             if (i != 0) i--;//muestra el registro anterior
-            MostrarRegistro();
-        }
-
-        private void Tsbbuscar_Click(object sender, EventArgs e)
-        {
-            FrmBuscarCliente mibusqueda = new FrmBuscarCliente();
-            mibusqueda.ShowDialog();
-            if (mibusqueda.IdCliente == 0) return;
-            int position = clienteBindingSource.Find("IdCliente", mibusqueda.IdCliente);
-            clienteBindingSource.Position = position;
+            MostrarDatos();
         }
     }
 }

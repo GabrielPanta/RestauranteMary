@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RestauranteMary
@@ -19,7 +12,9 @@ namespace RestauranteMary
 
         private void MosoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FrmMoso miform = new FrmMoso();
+            miform.MdiParent = this;
+            miform.Show();
         }
 
         private void ClientesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,12 +37,28 @@ namespace RestauranteMary
 
         private void MesaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FrmMesa miform = new FrmMesa();
+            miform.MdiParent = this;
+            miform.Show();
         }
 
         private void CocinerosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmCocinero miform = new FrmCocinero();
+            miform.MdiParent = this;
+            miform.Show();
+        }
+
+        private void PlatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPlato miform = new FrmPlato();
+            miform.MdiParent = this;
+            miform.Show();
+        }
+
+        private void UsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmUsuario miform = new FrmUsuario();
             miform.MdiParent = this;
             miform.Show();
         }

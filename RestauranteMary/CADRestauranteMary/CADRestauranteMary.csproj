@@ -43,6 +43,9 @@
   <ItemGroup>
     <Compile Include="CADCliente.cs" />
     <Compile Include="CADCocinero.cs" />
+    <Compile Include="CADMesa.cs" />
+    <Compile Include="CADMoso.cs" />
+    <Compile Include="CADPlato.cs" />
     <Compile Include="CADUsuario.cs" />
     <Compile Include="DSRestauranteMary.Designer.cs">
       <AutoGen>True</AutoGen>
